@@ -1,7 +1,11 @@
 # ncov_wa
-WA-focused ncov Nexstrain builds for genomic surveillance of SARS-CoV-2 in Washington state for the past six months.
-Builds located here:
-- [Washington-focused SARS-CoV-2 genomic analysis: Past six months](https://nextstrain.org/groups/waphl/ncov/wa/6m)
+
+## Build Overview
+- **Build Name**: [ncov_wa_six_mon]
+- **Pathogen/Strain**: [ncov]
+- **Scope**: [WGS of SARS-CoV-2 in Washington state]
+- **Purpose**: [Genomic surveillance of SARS-CoV-2 in Washington State for past six months]
+- **Nextstrain Build Location**: [Washington-focused SARS-CoV-2 genomic analysis: Past six months](https://nextstrain.org/groups/waphl/ncov/wa/6m)
 
 # Setup
 First, install the [ncov nextstrain pipeline](https://github.com/nextstrain/ncov) and clone the ncov repository using `git clone https://github.com/nextstrain/ncov` or `gh repo clone nextstrain/ncov`.
@@ -41,20 +45,27 @@ You can check your results once the pipeline is done running using `nextstrain v
 The file hierachy for this customized build:
 ```
 ncov_wa/
-|---config/
-|   |---auspice_config.json         #variables to include in Color By feature
-|   |---builds.yaml                 #the builds file that customizes nextstrain build
-|   |---colors.tsv                  #WA county colors
-|   |---config.yaml                 #file that includes dependencies and path to the builds.yaml
-|   |---description.md
-|---data/
-|   |---county_metadata.tsv         #to add WA counties to the metadata so they can be included in the build
-|   |---headers.tsv                 #needed for the smk workflow to create metadata file
-|---scripts/
-|   |---wa-nextstrain-update-location-genbank.py #adds county metadata to the filtered wa seqs metadata
-|   |---filter_wa_metadata.sh       #for the smk workflow to pull the WA metadata from the full remote dataset
-|   |---filter_wa_sequences.sh      #for the smk workflow to pull the WA sequences from the full remote dataset
-|   |---pull_full_data.sh           #for the smk workflow to pull the full remote dataset to filter out anything that's not WA seqs and metadata
-|---workflow/
-|   |---filter_wa_data.smk          #pulls the full data and then filters for WA data to be the input into the Nextstrain build
+├──config/
+|   ├──auspice_config.json         #variables to include in Color By feature
+|   ├──builds.yaml                 #the builds file that customizes nextstrain build
+|   ├──colors.tsv                  #WA county colors
+|   ├──config.yaml                 #file that includes dependencies and path to the builds.yaml
+|   ├──description.md
+├──data/
+|   ├──county_metadata.tsv         #to add WA counties to the metadata so they can be included in the build
+|   ├──headers.tsv                 #needed for the smk workflow to create metadata file
+├──scripts/
+|   ├──wa-nextstrain-update-location-genbank.py #adds county metadata to the filtered wa seqs metadata
+|   ├──filter_wa_metadata.sh       #for the smk workflow to pull the WA metadata from the full remote dataset
+|   ├──filter_wa_sequences.sh      #for the smk workflow to pull the WA sequences from the full remote dataset
+|   ├──pull_full_data.sh           #for the smk workflow to pull the full remote dataset to filter out anything that's not WA seqs and metadata
+├──workflow/
+|   ├──filter_wa_data.smk          #pulls the full data and then filters for WA data to be the input into the Nextstrain build
 ```
+
+## Files that may need to be changed
+When you pull updates for the ncov repo there are a few files that you want to keep an eye for for any changes. This includes the following files the default ncov build:
+- `ncov/defaults/auspice_config.json`
+- `ncov/defaults/builds.yaml`
+
+If there are any changes to the d
