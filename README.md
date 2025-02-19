@@ -95,6 +95,8 @@ When you pull updates for the ncov repo there are a few files that you want to k
 - `ncov/defaults/builds.yaml`
 
 ## Expected Outputs
+- `ncov/auspice/ncov_ncov_wa_six_mon_root-sequence.json`
+- `ncov/auspice/ncov_ncov_wa_six_mon_tip-frequencies.json`
 
 ## Scientific Decisions
 
