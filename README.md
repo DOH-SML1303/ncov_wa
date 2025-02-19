@@ -42,19 +42,19 @@ The file hierachy for this customized build:
 ```
 ncov_wa/
 |---config/
-|   |---auspice_config.json #variables to include in Color By feature
-|   |---builds.yaml #the builds file that customizes nextstrain build
-|   |---colors.tsv #WA county colors
-|   |---config.yaml `#file that includes dependencies and path to the builds.yaml`
+|   |---auspice_config.json         #variables to include in Color By feature
+|   |---builds.yaml                 #the builds file that customizes nextstrain build
+|   |---colors.tsv                  #WA county colors
+|   |---config.yaml                 #file that includes dependencies and path to the builds.yaml
 |   |---description.md
 |---data/
-|   |---county_metadata.tsv `#to add WA counties to the metadata so they can be included in the build`
-|   |---headers.tsv `#needed for the smk workflow to create metadata file`
+|   |---county_metadata.tsv         #to add WA counties to the metadata so they can be included in the build
+|   |---headers.tsv                 #needed for the smk workflow to create metadata file
 |---scripts/
-|   |---wa-nextstrain-update-location-genbank.py `#adds county metadata to the filtered wa seqs metadata`
-|   |---filter_wa_metadata.sh `#for the smk workflow to pull the WA metadata from the full remote dataset`
-|   |---filter_wa_sequences.sh `#for the smk workflow to pull the WA sequences from the full remote dataset`
-|   |---pull_full_data.sh `#for the smk workflow to pull the full remote dataset to filter out anything that's not WA seqs and metadata`
+|   |---wa-nextstrain-update-location-genbank.py #adds county metadata to the filtered wa seqs metadata
+|   |---filter_wa_metadata.sh       #for the smk workflow to pull the WA metadata from the full remote dataset
+|   |---filter_wa_sequences.sh      #for the smk workflow to pull the WA sequences from the full remote dataset
+|   |---pull_full_data.sh           #for the smk workflow to pull the full remote dataset to filter out anything that's not WA seqs and metadata
 |---workflow/
-|   |---filter_wa_data.smk `#pulls the full data and then filters for WA data to be the input into the Nextstrain build`
+|   |---filter_wa_data.smk          #pulls the full data and then filters for WA data to be the input into the Nextstrain build
 ```
