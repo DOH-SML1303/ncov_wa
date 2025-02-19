@@ -39,11 +39,12 @@ You can check your results once the pipeline is done running using `nextstrain v
 
 # About the WA-focused build
 The file hierachy for this customized build:
+```
 ncov_wa/
 |---config/
-|   |---auspice_config.json `#variables to include in Color By feature`
-|   |---builds.yaml `#the builds file that customizes nextstrain build`
-|   |---colors.tsv `#WA county colors`
+|   |---auspice_config.json #variables to include in Color By feature
+|   |---builds.yaml #the builds file that customizes nextstrain build
+|   |---colors.tsv #WA county colors
 |   |---config.yaml `#file that includes dependencies and path to the builds.yaml`
 |   |---description.md
 |---data/
@@ -56,3 +57,4 @@ ncov_wa/
 |   |---pull_full_data.sh `#for the smk workflow to pull the full remote dataset to filter out anything that's not WA seqs and metadata`
 |---workflow/
 |   |---filter_wa_data.smk `#pulls the full data and then filters for WA data to be the input into the Nextstrain build`
+```
