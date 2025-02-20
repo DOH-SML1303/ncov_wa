@@ -28,15 +28,16 @@
 ## Getting Started
 
 ### Data Sources & Inputs
+This build uses the Full Remote Dataset and Global Remote Datasets available on [Nextstrain](https://docs.nextstrain.org/projects/ncov/en/latest/reference/remote_inputs.html). This build is designed to pull Washington state sequences and metadata from the full remote dataset as the inputs to the ncov Nextstrain pipeline. The Global dataset (alignment and metadata) is used for contextual sequences in the build. To include more contextualization, one could use the Full Remote Dataset for the contextual sequences, however doing so may require AWS Batch to subsample from the dataset.
 
 ### Setup & dependencies
+See installation.
 
 ### Installation
-
-### Clone the Repository
 First, install the [ncov nextstrain pipeline](https://github.com/nextstrain/ncov) and clone the ncov repository using `git clone https://github.com/nextstrain/ncov` or `gh repo clone nextstrain/ncov`.
 
-Next, clone this repository in the `ncov` folder. You can do this in the command-line terminal by navigating to the `ncov` repository using `cd ncov` and then cloning the repository using `git clone https://github.com/DOH-SML1303/ncov_wa.git` or `gh repo clone DOH-SML1303/ncov_wa`.
+### Clone the Repository
+Clone this repository in the `ncov` folder. You can do this in the command-line terminal by navigating to the `ncov` repository using `cd ncov` and then cloning the repository using `git clone https://github.com/DOH-SML1303/ncov_wa.git` or `gh repo clone DOH-SML1303/ncov_wa`.
 
 ## Run the Build
 This ncov Nexstrain build sources data from Genbank and includes a 6m build. If you're running Nextstrain in a conda environment or `Nextstrain shell` then you want to make sure you pull the latest ncov github repository updates first by running `git pull` in the `ncov` directory, activating the conda environment using `conda activate nextstrain` or Nexstrain shell using `Nextstrain shell .` followed by `nextstrain update` to update Nextstrain. (To update the `Nextstrain shell`, you must run `nextstrain update` outside of the shell) It's recommended to pull updates prior to running the pipeline. The same could also be said for this repo as well! :)
@@ -92,7 +93,11 @@ ncov_wa/
 ## Files that may need to be changed
 When you pull updates for the ncov repo there are a few files that you want to keep an eye for for any changes. This includes the following files the default ncov build:
 - `ncov/defaults/auspice_config.json`
-- `ncov/defaults/builds.yaml`
+- `ncov/nextstrain_profiles/.../builds.yaml`
+
+If there are any changes to these two files then changes may need to be made to their custom counterparts in this focused build.
+- Changes to `ncov/defaults/auspice_config.json` > make changes to > `ncov_wa/config/auspice_config.json`
+- Changes to `ncov/nextstrain_profiles/.../builds.yaml` > *may require changes to* > `ncov_wa/config/builds.yaml`
 
 ## Expected Outputs
 - `ncov/auspice/ncov_ncov_wa_six_mon.json`
