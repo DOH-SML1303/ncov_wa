@@ -58,6 +58,7 @@ rule compress_files:
         tar -cJf {output.compressed_output} {input.filtered_wa_sequences} {input.wa_metadata}
         """
 
+# to set build to use WA data from the past six months
 from dateutil import relativedelta
 
 # Calculate dates
